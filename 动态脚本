@@ -1,0 +1,53 @@
+外部脚本
+//script.js里面的内容
+box.style.color = "red";
+
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "script.js";
+document.body.appendChild(script);
+
+使用函数封装：
+<div id="box">测试文字</div>
+<button id="btn">动态添加脚本</button>
+<script>
+function loadScript(url){
+    loadScript.mark = 'load';
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    document.body.appendChild(script);
+}
+btn.onclick = function(){
+    if(loadScript.mark != 'load'){
+        loadScript("js/script.js");        
+    }
+}
+</script>
+
+内部脚本
+<script>
+    box.style.color = "red";
+</script>
+
+var script = document.createElement("script");
+script.innerHTML = 'box.style.color = "red"';
+document.body.appendChild(script);
+
+使用函数封装：
+<div id="box">测试文字</div>
+<button id="btn">动态添加样式</button>
+<script>
+function loadScript(str){
+    loadScript.mark = 'load';
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.innerHTML = str;
+    document.body.appendChild(script);
+}
+btn.onclick = function(){
+    if(loadScript.mark != 'load'){
+        loadScript("box.style.color = 'red'");        
+    }
+}
+</script>
