@@ -77,18 +77,12 @@ function fn(){
     alert(this.color);
 }
 fn();
-
 【7】不允许使用with语句
-
 "use strict";
 with(location){
     alert(href);
 }
-
- 
-
 【8】不允许使用八进制字面量
-
 "use strict";
 var value = 010;
 
